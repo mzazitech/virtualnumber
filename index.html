@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="description" content="Buy WhatsApp virtual numbers for account verification. Fast, secure & affordable virtual numbers from Kenya, Uganda, Tanzania, US, UK and more.">
+  <title>MZAZI TECH | Virtual Numbers for WhatsApp</title>
+  <!-- Google Fonts + Font Awesome 6 -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #0A0C10;
+      color: #EFF3F8;
+      line-height: 1.5;
+      scroll-behavior: smooth;
+    }
+
+    /* Custom scrollbar */
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #1A1E26;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #2A6F5C;
+      border-radius: 8px;
+    }
+
+    /* Floating WhatsApp Button */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: #25D366;
+      color: white;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 30px;
+      box-shadow: 0 8px 20px rgba(37, 211, 102, 0.3);
+      transition: all 0.25s ease;
+      z-index: 1000;
+      text-decoration: none;
+    }
+    .whatsapp-float:hover {
+      transform: scale(1.08);
+      background: #20b859;
+      box-shadow: 0 12px 24px rgba(37, 211, 102, 0.4);
+    }
+
+    /* Navbar */
+    .navbar {
+      background: rgba(10, 12, 16, 0.96);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(46, 204, 113, 0.15);
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      padding: 0 24px;
+    }
+    .nav-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 0;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      font-size: 1.3rem;
+    }
+    .logo-icon {
+      background: linear-gradient(135deg, #2ECC71, #1E8F4A);
+      padding: 8px;
+      border-radius: 12px;
+      font-size: 1.1rem;
+    }
+    .logo-text span {
+      font-weight: 500;
+      font-size: 0.85rem;
+      color: #2ECC71;
+    }
+    .nav-links {
+      display: flex;
+      gap: 32px;
+    }
+    .nav-link {
+      color: #C0C9DD;
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.2s;
+      font-size: 1rem;
+    }
+    .nav-link:hover, .nav-link.active-nav {
+      color: #2ECC71;
+      text-shadow: 0 0 6px rgba(46,204,113,0.3);
+    }
+    .menu-icon {
+      display: none;
+      font-size: 1.6rem;
+      cursor: pointer;
+      color: #EFF3F8;
+    }
+
+    /* Buttons & cards */
+    .btn-glow {
+      background: linear-gradient(95deg, #2ECC71, #219653);
+      border: none;
+      padding: 12px 28px;
+      border-radius: 40px;
+      font-weight: 600;
+      color: white;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.25s;
+      box-shadow: 0 5px 12px rgba(46,204,113,0.3);
+    }
+    .btn-glow:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 24px rgba(46,204,113,0.4);
+      background: #1f9e55;
+    }
+
+    /* Hero */
+    .hero {
+      text-align: center;
+      padding: 70px 24px 50px;
+      background: radial-gradient(circle at 20% 30%, #10141C, #080A0E);
+    }
+    .hero h1 {
+      font-size: 2.7rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, #FFFFFF, #A0F0C0);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      margin-bottom: 18px;
+    }
+    .hero-sub {
+      font-size: 1.2rem;
+      color: #B0BCD0;
+      max-width: 600px;
+      margin: 0 auto 30px;
+    }
+    .hero-stats {
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      margin-top: 48px;
+      flex-wrap: wrap;
+    }
+    .stat {
+      background: rgba(46,204,113,0.08);
+      backdrop-filter: blur(4px);
+      padding: 8px 20px;
+      border-radius: 40px;
+      font-weight: 500;
+      font-size: 0.9rem;
+      border: 1px solid rgba(46,204,113,0.2);
+    }
+    .features-preview {
+      display: flex;
+      justify-content: center;
+      gap: 28px;
+      flex-wrap: wrap;
+      padding: 60px 24px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .feature-card {
+      background: #12161E;
+      border-radius: 24px;
+      padding: 28px 24px;
+      text-align: center;
+      width: 220px;
+      border: 1px solid #1F2937;
+      transition: 0.2s;
+    }
+    .feature-card i {
+      font-size: 2.4rem;
+      color: #2ECC71;
+      margin-bottom: 15px;
+    }
+    .feature-card h3 {
+      margin-bottom: 8px;
+    }
+    .preview-label {
+      text-align: center;
+      font-size: 0.85rem;
+      letter-spacing: 1px;
+      color: #6C86A3;
+      margin-top: 20px;
+    }
+    .country-strip {
+      display: flex;
+      justify-content: center;
+      gap: 18px;
+      flex-wrap: wrap;
+      padding: 20px 20px 50px;
+    }
+    .country-strip span {
+      background: #11161E;
+      padding: 6px 18px;
+      border-radius: 40px;
+      font-weight: 500;
+      font-size: 0.9rem;
+      border: 1px solid #29303c;
+    }
+    .footer {
+      border-top: 1px solid #1E293B;
+      text-align: center;
+      padding: 30px 20px;
+      color: #8A99B4;
+      font-size: 0.85rem;
+    }
+    .footer-links a {
+      color: #9CABCA;
+      text-decoration: none;
+      margin: 0 8px;
+    }
+
+    /* Pricing page specific */
+    .pricing-header {
+      text-align: center;
+      padding: 40px 24px 20px;
+    }
+    .search-section {
+      max-width: 500px;
+      margin: 20px auto 30px;
+      padding: 0 20px;
+    }
+    .search-box {
+      width: 100%;
+      background: #11151E;
+      border: 1px solid #2A3647;
+      border-radius: 60px;
+      padding: 14px 20px;
+      color: white;
+      font-size: 1rem;
+      outline: none;
+      transition: 0.2s;
+    }
+    .search-box:focus {
+      border-color: #2ECC71;
+      box-shadow: 0 0 0 3px rgba(46,204,113,0.2);
+    }
+    .countries-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 24px;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 30px 24px 70px;
+    }
+    .country-card {
+      background: #12161F;
+      border-radius: 28px;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: all 0.25s ease;
+      border: 1px solid #212936;
+      backdrop-filter: blur(2px);
+    }
+    .country-card:hover {
+      transform: translateY(-5px);
+      border-color: #2ECC71;
+      box-shadow: 0 15px 30px -12px rgba(0,0,0,0.5);
+      background: #161C28;
+    }
+    .country-info {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .flag-icon {
+      font-size: 2.4rem;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+    }
+    .country-details h3 {
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+    .country-code {
+      font-size: 0.8rem;
+      color: #8CA3C2;
+      font-family: monospace;
+    }
+    .price-buy {
+      text-align: right;
+    }
+    .price {
+      font-weight: 800;
+      font-size: 1.4rem;
+      color: #2ECC71;
+    }
+    .buy-btn {
+      background: transparent;
+      border: 1.5px solid #2ECC71;
+      color: #2ECC71;
+      padding: 8px 18px;
+      border-radius: 40px;
+      font-weight: 600;
+      margin-top: 8px;
+      cursor: pointer;
+      transition: 0.2s;
+      font-size: 0.8rem;
+    }
+    .buy-btn:hover {
+      background: #2ECC71;
+      color: #0A0C10;
+    }
+    .no-results {
+      text-align: center;
+      padding: 50px;
+      color: #94a3b8;
+    }
+
+    /* Contact page */
+    .contact-container {
+      max-width: 700px;
+      margin: 60px auto;
+      background: #0F131C;
+      border-radius: 40px;
+      padding: 45px 35px;
+      text-align: center;
+      border: 1px solid #262E3C;
+    }
+    .contact-icon {
+      font-size: 3.5rem;
+      color: #25D366;
+    }
+    .contact-wa {
+      background: #1f2a36;
+      padding: 15px;
+      border-radius: 60px;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin: 20px 0;
+    }
+    .contact-wa i {
+      color: #25D366;
+    }
+
+    /* radio selector for country (like whatsapp style) used on pricing */
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        background: #0E121C;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        right: 0;
+        padding: 24px;
+        gap: 20px;
+        border-bottom: 1px solid #2A3647;
+      }
+      .nav-links.show {
+        display: flex;
+      }
+      .menu-icon {
+        display: block;
+      }
+      .hero h1 {
+        font-size: 1.8rem;
+      }
+      .countries-grid {
+        grid-template-columns: 1fr;
+        padding: 20px 16px;
+      }
+      .country-card {
+        flex-direction: row;
+        flex-wrap: wrap;
+      }
+      .price-buy {
+        text-align: right;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a href="https://wa.me/254741388986?text=Hello%20I%20want%20to%20buy%20a%20virtual%20number" class="whatsapp-float" target="_blank" rel="noopener noreferrer">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="logo">
+        <span class="logo-icon"><i class="fas fa-sim-card"></i></span>
+        <span class="logo-text">MZAZI TECH<span> VIRTUAL NUMBERS</span></span>
+      </div>
+      <div class="nav-links" id="navLinks">
+        <a href="index.html" class="nav-link" data-nav="home">Home</a>
+        <a href="pricing.html" class="nav-link" data-nav="pricing">Pricing</a>
+        <a href="contact.html" class="nav-link" data-nav="contact">Contact</a>
+      </div>
+      <div class="menu-icon" id="menuToggle">
+        <i class="fas fa-bars"></i>
+      </div>
+    </div>
+  </nav>
+
+  <div id="page-content"></div>
+
+  <footer class="footer">
+    <p>© 2026 MZAZI TECH VIRTUAL NUMBERS. All Rights Reserved.</p>
+    <div class="footer-links">
+      <a href="index.html">Home</a> | <a href="pricing.html">Pricing</a> | <a href="contact.html">Contact</a>
+    </div>
+  </footer>
+
+  <script>
+    // ---------- COUNTRIES DATA ----------
+    const countriesList = [
+      { name: "Kenya", code: "+254", price: 100, currency: "KSh", flag: "🇰🇪" },
+      { name: "Uganda", code: "+256", price: 120, currency: "KSh", flag: "🇺🇬" },
+      { name: "Tanzania", code: "+255", price: 120, currency: "KSh", flag: "🇹🇿" },
+      { name: "Nigeria", code: "+234", price: 150, currency: "KSh", flag: "🇳🇬" },
+      { name: "Ghana", code: "+233", price: 150, currency: "KSh", flag: "🇬🇭" },
+      { name: "United States", code: "+1", price: 250, currency: "KSh", flag: "🇺🇸" },
+      { name: "United Kingdom", code: "+44", price: 300, currency: "KSh", flag: "🇬🇧" },
+      { name: "Canada", code: "+1", price: 300, currency: "KSh", flag: "🇨🇦" },
+      { name: "India", code: "+91", price: 200, currency: "KSh", flag: "🇮🇳" },
+      { name: "Pakistan", code: "+92", price: 200, currency: "KSh", flag: "🇵🇰" },
+      { name: "Indonesia", code: "+62", price: 200, currency: "KSh", flag: "🇮🇩" },
+      { name: "Bangladesh", code: "+880", price: 200, currency: "KSh", flag: "🇧🇩" },
+      { name: "Philippines", code: "+63", price: 220, currency: "KSh", flag: "🇵🇭" },
+      { name: "China", code: "+86", price: 300, currency: "KSh", flag: "🇨🇳" },
+      { name: "Germany", code: "+49", price: 350, currency: "KSh", flag: "🇩🇪" },
+      { name: "France", code: "+33", price: 350, currency: "KSh", flag: "🇫🇷" },
+      { name: "Ukraine", code: "+380", price: 300, currency: "KSh", flag: "🇺🇦" },
+      { name: "Russia", code: "+7", price: 300, currency: "KSh", flag: "🇷🇺" }
+    ];
+
+    const WHATSAPP_LINK = "https://wa.me/254741388986?text=Hello%20I%20want%20to%20buy%20a%20virtual%20number";
+
+    function renderPricingPage(searchTerm = "") {
+      const container = document.getElementById("page-content");
+      if (!container) return;
+      const filtered = countriesList.filter(c => 
+        c.name.toLowerCase().includes(searchTerm.toLowerCase()) || 
+        c.code.includes(searchTerm)
+      );
+      const gridHtml = filtered.map(country => `
+        <div class="country-card" data-country="${country.name}">
+          <div class="country-info">
+            <span class="flag-icon">${country.flag}</span>
+            <div class="country-details">
+              <h3>${country.name}</h3>
+              <div class="country-code">${country.code}</div>
+            </div>
+          </div>
+          <div class="price-buy">
+            <div class="price">${country.currency} ${country.price}</div>
+            <button class="buy-btn" data-code="${country.code}" data-name="${country.name}">Buy Now →</button>
+          </div>
+        </div>
+      `).join("");
+      
+      const noResults = filtered.length === 0 ? `<div class="no-results"><i class="fas fa-search"></i> No matching countries</div>` : "";
+      container.innerHTML = `
+        <div class="pricing-header">
+          <h1>📞 Choose Your Virtual Number</h1>
+          <p style="color:#A5B4D0;">Select country & click Buy Now — Instant WhatsApp delivery</p>
+        </div>
+        <div class="search-section">
+          <input type="text" class="search-box" id="countrySearch" placeholder="🔍 Search country or code (e.g., Kenya, +254)" autocomplete="off">
+        </div>
+        <div class="countries-grid" id="countriesGrid">
+          ${gridHtml}
+          ${noResults}
+        </div>
+      `;
+      // attach search event
+      const searchInput = document.getElementById("countrySearch");
+      if (searchInput) {
+        searchInput.value = searchTerm;
+        searchInput.addEventListener("input", (e) => {
+          renderPricingPage(e.target.value);
+        });
+      }
+      // attach buy buttons
+      document.querySelectorAll(".buy-btn").forEach(btn => {
+        btn.addEventListener("click", (e) => {
+          e.preventDefault();
+          window.open(WHATSAPP_LINK, "_blank");
+        });
+      });
+    }
+
+    function renderContactPage() {
+      const container = document.getElementById("page-content");
+      if (!container) return;
+      container.innerHTML = `
+        <div class="contact-container">
+          <i class="fab fa-whatsapp contact-icon"></i>
+          <h2 style="margin-top: 15px;">Connect With Us</h2>
+          <div class="contact-wa">
+            <i class="fab fa-whatsapp"></i> +254741388986
+          </div>
+          <p style="font-size: 1.1rem; font-weight:500;">MZAZI TECH VIRTUAL NUMBERS</p>
+          <p style="margin-top: 20px; color:#8CA3C2;">Fast virtual numbers for WhatsApp verification. Reliable support 24/7 via WhatsApp.</p>
+          <a href="${WHATSAPP_LINK}" target="_blank" class="btn-glow" style="margin-top: 28px; display: inline-flex;">Chat on WhatsApp <i class="fab fa-whatsapp"></i></a>
+        </div>
+      `;
+    }
+
+    function renderHomePage() {
+      const container = document.getElementById("page-content");
+      if (!container) return;
+      container.innerHTML = `
+        <main>
+          <section class="hero">
+            <div class="hero-content">
+              <h1>Buy WhatsApp Virtual Numbers Instantly</h1>
+              <p class="hero-sub">Fast, Secure & Affordable Verification Numbers</p>
+              <a href="pricing.html" class="btn-glow">Order Now <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="hero-stats">
+              <div class="stat"><i class="fas fa-check-circle"></i> Instant delivery</div>
+              <div class="stat"><i class="fas fa-shield-alt"></i> Secure & private</div>
+              <div class="stat"><i class="fas fa-globe"></i> 20+ countries</div>
+            </div>
+          </section>
+          <section class="features-preview">
+            <div class="feature-card"><i class="fas fa-bolt"></i><h3>Lightning Fast</h3><p>Get your virtual number in minutes</p></div>
+            <div class="feature-card"><i class="fas fa-headset"></i><h3>24/7 Support</h3><p>Real human assistance on WhatsApp</p></div>
+            <div class="feature-card"><i class="fas fa-money-bill-wave"></i><h3>Best Prices</h3><p>Competitive rates across all regions</p></div>
+          </section>
+          <div class="preview-label"><i class="fas fa-list-ul"></i> Popular destinations</div>
+          <div class="country-strip">
+            <span>🇰🇪 Kenya +254</span> <span>🇺🇬 Uganda +256</span> <span>🇹🇿 Tanzania +255</span>
+            <span>🇳🇬 Nigeria +234</span> <span>🇺🇸 USA +1</span> <span>🇬🇧 UK +44</span>
+          </div>
+        </main>
+      `;
+    }
+
+    // Router logic based on URL path
+    function router() {
+      const path = window.location.pathname.split("/").pop() || "index.html";
+      const container = document.getElementById("page-content");
+      if (!container) return;
+      if (path === "pricing.html" || path === "pricing") {
+        renderPricingPage("");
+      } else if (path === "contact.html" || path === "contact") {
+        renderContactPage();
+      } else {
+        renderHomePage();
+      }
+      // update active nav class
+      document.querySelectorAll(".nav-link").forEach(link => {
+        link.classList.remove("active-nav");
+        const href = link.getAttribute("href");
+        if ((path === "index.html" || path === "" || path === "/") && href === "index.html") link.classList.add("active-nav");
+        else if (href === path) link.classList.add("active-nav");
+        else if (path === "pricing.html" && href === "pricing.html") link.classList.add("active-nav");
+        else if (path === "contact.html" && href === "contact.html") link.classList.add("active-nav");
+      });
+    }
+
+    // Mobile menu toggle
+    function initMobileMenu() {
+      const menuBtn = document.getElementById("menuToggle");
+      const navLinks = document.getElementById("navLinks");
+      if (menuBtn && navLinks) {
+        menuBtn.addEventListener("click", () => {
+          navLinks.classList.toggle("show");
+        });
+        document.querySelectorAll(".nav-link").forEach(link => {
+          link.addEventListener("click", () => navLinks.classList.remove("show"));
+        });
+      }
+    }
+
+    // on load & popstate
+    window.addEventListener("DOMContentLoaded", () => {
+      // create main content container if not exists
+      if (!document.getElementById("page-content")) {
+        const mainDiv = document.createElement("div");
+        mainDiv.id = "page-content";
+        const navbar = document.querySelector(".navbar");
+        const footer = document.querySelector(".footer");
+        navbar.insertAdjacentElement("afterend", mainDiv);
+      }
+      router();
+      initMobileMenu();
+    });
+
+    window.addEventListener("popstate", () => router());
+
+    // handle internal navigation for SPA-like smoothness but keep separate files? We'll preserve href for real pages but ensure same behavior
+    // make buy links globally working also added manually, but any external link works
+  </script>
+</body>
+</html>
