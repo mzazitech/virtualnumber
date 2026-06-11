@@ -106,8 +106,9 @@
       font-weight: 500;
       transition: 0.2s;
       font-size: 1rem;
+      cursor: pointer;
     }
-    .nav-link:hover, .nav-link.active-nav {
+    .nav-link:hover, .nav-link.active {
       color: #2ECC71;
       text-shadow: 0 0 6px rgba(46,204,113,0.3);
     }
@@ -132,6 +133,7 @@
       gap: 8px;
       transition: all 0.25s;
       box-shadow: 0 5px 12px rgba(46,204,113,0.3);
+      cursor: pointer;
     }
     .btn-glow:hover {
       transform: translateY(-3px);
@@ -139,11 +141,17 @@
       background: #1f9e55;
     }
 
-    /* Hero */
+    /* Sections */
+    .section {
+      padding: 60px 24px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
     .hero {
       text-align: center;
-      padding: 70px 24px 50px;
+      padding: 80px 24px 60px;
       background: radial-gradient(circle at 20% 30%, #10141C, #080A0E);
+      border-radius: 0 0 40px 40px;
     }
     .hero h1 {
       font-size: 2.7rem;
@@ -181,9 +189,7 @@
       justify-content: center;
       gap: 28px;
       flex-wrap: wrap;
-      padding: 60px 24px;
-      max-width: 1200px;
-      margin: 0 auto;
+      margin: 30px 0 20px;
     }
     .feature-card {
       background: #12161E;
@@ -214,7 +220,7 @@
       justify-content: center;
       gap: 18px;
       flex-wrap: wrap;
-      padding: 20px 20px 50px;
+      padding: 20px 20px 0;
     }
     .country-strip span {
       background: #11161E;
@@ -224,28 +230,19 @@
       font-size: 0.9rem;
       border: 1px solid #29303c;
     }
-    .footer {
-      border-top: 1px solid #1E293B;
-      text-align: center;
-      padding: 30px 20px;
-      color: #8A99B4;
-      font-size: 0.85rem;
-    }
-    .footer-links a {
-      color: #9CABCA;
-      text-decoration: none;
-      margin: 0 8px;
-    }
 
-    /* Pricing page specific */
+    /* Pricing Section */
     .pricing-header {
       text-align: center;
-      padding: 40px 24px 20px;
+      margin-bottom: 30px;
+    }
+    .pricing-header h2 {
+      font-size: 2rem;
+      margin-bottom: 12px;
     }
     .search-section {
       max-width: 500px;
-      margin: 20px auto 30px;
-      padding: 0 20px;
+      margin: 0 auto 40px;
     }
     .search-box {
       width: 100%;
@@ -266,9 +263,7 @@
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
       gap: 24px;
-      max-width: 1400px;
-      margin: 0 auto;
-      padding: 30px 24px 70px;
+      margin-top: 20px;
     }
     .country-card {
       background: #12161F;
@@ -333,12 +328,13 @@
       text-align: center;
       padding: 50px;
       color: #94a3b8;
+      grid-column: 1/-1;
     }
 
-    /* Contact page */
+    /* Contact Section */
     .contact-container {
       max-width: 700px;
-      margin: 60px auto;
+      margin: 40px auto 60px;
       background: #0F131C;
       border-radius: 40px;
       padding: 45px 35px;
@@ -351,7 +347,7 @@
     }
     .contact-wa {
       background: #1f2a36;
-      padding: 15px;
+      padding: 15px 25px;
       border-radius: 60px;
       display: inline-flex;
       align-items: center;
@@ -364,7 +360,20 @@
       color: #25D366;
     }
 
-    /* radio selector for country (like whatsapp style) used on pricing */
+    .footer {
+      border-top: 1px solid #1E293B;
+      text-align: center;
+      padding: 30px 20px;
+      color: #8A99B4;
+      font-size: 0.85rem;
+    }
+    .footer-links a {
+      color: #9CABCA;
+      text-decoration: none;
+      margin: 0 8px;
+      cursor: pointer;
+    }
+
     @media (max-width: 768px) {
       .nav-links {
         display: none;
@@ -389,7 +398,6 @@
       }
       .countries-grid {
         grid-template-columns: 1fr;
-        padding: 20px 16px;
       }
       .country-card {
         flex-direction: row;
@@ -398,14 +406,19 @@
       .price-buy {
         text-align: right;
       }
+      .section {
+        padding: 40px 20px;
+      }
     }
   </style>
 </head>
 <body>
+  <!-- Floating WhatsApp Button (all pages) -->
   <a href="https://wa.me/254741388986?text=Hello%20I%20want%20to%20buy%20a%20virtual%20number" class="whatsapp-float" target="_blank" rel="noopener noreferrer">
     <i class="fab fa-whatsapp"></i>
   </a>
 
+  <!-- Navigation -->
   <nav class="navbar">
     <div class="nav-container">
       <div class="logo">
@@ -413,9 +426,9 @@
         <span class="logo-text">MZAZI TECH<span> VIRTUAL NUMBERS</span></span>
       </div>
       <div class="nav-links" id="navLinks">
-        <a href="index.html" class="nav-link" data-nav="home">Home</a>
-        <a href="pricing.html" class="nav-link" data-nav="pricing">Pricing</a>
-        <a href="contact.html" class="nav-link" data-nav="contact">Contact</a>
+        <a class="nav-link" data-page="home">Home</a>
+        <a class="nav-link" data-page="pricing">Pricing</a>
+        <a class="nav-link" data-page="contact">Contact</a>
       </div>
       <div class="menu-icon" id="menuToggle">
         <i class="fas fa-bars"></i>
@@ -423,17 +436,20 @@
     </div>
   </nav>
 
-  <div id="page-content"></div>
+  <!-- Dynamic Content Container -->
+  <main id="app-root"></main>
 
   <footer class="footer">
     <p>© 2026 MZAZI TECH VIRTUAL NUMBERS. All Rights Reserved.</p>
     <div class="footer-links">
-      <a href="index.html">Home</a> | <a href="pricing.html">Pricing</a> | <a href="contact.html">Contact</a>
+      <a data-page="home">Home</a> | 
+      <a data-page="pricing">Pricing</a> | 
+      <a data-page="contact">Contact</a>
     </div>
   </footer>
 
   <script>
-    // ---------- COUNTRIES DATA ----------
+    // ---------- COUNTRIES DATABASE ----------
     const countriesList = [
       { name: "Kenya", code: "+254", price: 100, currency: "KSh", flag: "🇰🇪" },
       { name: "Uganda", code: "+256", price: 120, currency: "KSh", flag: "🇺🇬" },
@@ -457,15 +473,61 @@
 
     const WHATSAPP_LINK = "https://wa.me/254741388986?text=Hello%20I%20want%20to%20buy%20a%20virtual%20number";
 
-    function renderPricingPage(searchTerm = "") {
-      const container = document.getElementById("page-content");
-      if (!container) return;
+    // Helper to update active nav
+    function setActiveNav(pageId) {
+      document.querySelectorAll('.nav-link').forEach(link => {
+        if (link.getAttribute('data-page') === pageId) {
+          link.classList.add('active');
+        } else {
+          link.classList.remove('active');
+        }
+      });
+    }
+
+    // Render Home Page
+    function renderHome() {
+      const root = document.getElementById('app-root');
+      root.innerHTML = `
+        <section class="hero">
+          <div class="hero-content">
+            <h1>Buy WhatsApp Virtual Numbers Instantly</h1>
+            <p class="hero-sub">Fast, Secure & Affordable Verification Numbers</p>
+            <button class="btn-glow" id="orderNowBtn">Order Now <i class="fas fa-arrow-right"></i></button>
+          </div>
+          <div class="hero-stats">
+            <div class="stat"><i class="fas fa-check-circle"></i> Instant delivery</div>
+            <div class="stat"><i class="fas fa-shield-alt"></i> Secure & private</div>
+            <div class="stat"><i class="fas fa-globe"></i> 20+ countries</div>
+          </div>
+        </section>
+        <div class="section">
+          <div class="features-preview">
+            <div class="feature-card"><i class="fas fa-bolt"></i><h3>Lightning Fast</h3><p>Get your virtual number in minutes</p></div>
+            <div class="feature-card"><i class="fas fa-headset"></i><h3>24/7 Support</h3><p>Real human assistance on WhatsApp</p></div>
+            <div class="feature-card"><i class="fas fa-money-bill-wave"></i><h3>Best Prices</h3><p>Competitive rates across all regions</p></div>
+          </div>
+          <div class="preview-label"><i class="fas fa-list-ul"></i> Popular destinations</div>
+          <div class="country-strip">
+            <span>🇰🇪 Kenya +254</span> <span>🇺🇬 Uganda +256</span> <span>🇹🇿 Tanzania +255</span>
+            <span>🇳🇬 Nigeria +234</span> <span>🇺🇸 USA +1</span> <span>🇬🇧 UK +44</span>
+          </div>
+        </div>
+      `;
+      const orderBtn = document.getElementById('orderNowBtn');
+      if (orderBtn) orderBtn.addEventListener('click', () => navigateTo('pricing'));
+      setActiveNav('home');
+    }
+
+    // Render Pricing Page with search + radio-style country cards
+    function renderPricing(searchTerm = "") {
+      const root = document.getElementById('app-root');
       const filtered = countriesList.filter(c => 
         c.name.toLowerCase().includes(searchTerm.toLowerCase()) || 
         c.code.includes(searchTerm)
       );
+      
       const gridHtml = filtered.map(country => `
-        <div class="country-card" data-country="${country.name}">
+        <div class="country-card">
           <div class="country-info">
             <span class="flag-icon">${country.flag}</span>
             <div class="country-details">
@@ -475,145 +537,133 @@
           </div>
           <div class="price-buy">
             <div class="price">${country.currency} ${country.price}</div>
-            <button class="buy-btn" data-code="${country.code}" data-name="${country.name}">Buy Now →</button>
+            <button class="buy-btn" data-name="${country.name}" data-code="${country.code}">Buy Now →</button>
           </div>
         </div>
-      `).join("");
+      `).join('');
       
-      const noResults = filtered.length === 0 ? `<div class="no-results"><i class="fas fa-search"></i> No matching countries</div>` : "";
-      container.innerHTML = `
-        <div class="pricing-header">
-          <h1>📞 Choose Your Virtual Number</h1>
-          <p style="color:#A5B4D0;">Select country & click Buy Now — Instant WhatsApp delivery</p>
-        </div>
-        <div class="search-section">
-          <input type="text" class="search-box" id="countrySearch" placeholder="🔍 Search country or code (e.g., Kenya, +254)" autocomplete="off">
-        </div>
-        <div class="countries-grid" id="countriesGrid">
-          ${gridHtml}
-          ${noResults}
+      const noResultsHtml = filtered.length === 0 ? `<div class="no-results"><i class="fas fa-search"></i> No matching countries</div>` : '';
+      
+      root.innerHTML = `
+        <div class="section">
+          <div class="pricing-header">
+            <h2>📞 Select Your Virtual Number</h2>
+            <p style="color:#A5B4D0;">Click "Buy Now" — Instant WhatsApp delivery</p>
+          </div>
+          <div class="search-section">
+            <input type="text" class="search-box" id="countrySearchInput" placeholder="🔍 Search country or code (e.g., Kenya, +254)" autocomplete="off">
+          </div>
+          <div class="countries-grid" id="dynamicCountriesGrid">
+            ${gridHtml}
+            ${noResultsHtml}
+          </div>
         </div>
       `;
-      // attach search event
-      const searchInput = document.getElementById("countrySearch");
+      
+      // attach search live filter
+      const searchInput = document.getElementById('countrySearchInput');
       if (searchInput) {
         searchInput.value = searchTerm;
-        searchInput.addEventListener("input", (e) => {
-          renderPricingPage(e.target.value);
+        searchInput.addEventListener('input', (e) => {
+          renderPricing(e.target.value);
         });
       }
-      // attach buy buttons
-      document.querySelectorAll(".buy-btn").forEach(btn => {
-        btn.addEventListener("click", (e) => {
+      
+      // attach buy buttons to WhatsApp redirect
+      document.querySelectorAll('.buy-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
           e.preventDefault();
-          window.open(WHATSAPP_LINK, "_blank");
+          window.open(WHATSAPP_LINK, '_blank');
         });
       });
+      setActiveNav('pricing');
     }
 
-    function renderContactPage() {
-      const container = document.getElementById("page-content");
-      if (!container) return;
-      container.innerHTML = `
-        <div class="contact-container">
-          <i class="fab fa-whatsapp contact-icon"></i>
-          <h2 style="margin-top: 15px;">Connect With Us</h2>
-          <div class="contact-wa">
-            <i class="fab fa-whatsapp"></i> +254741388986
+    // Render Contact Page
+    function renderContact() {
+      const root = document.getElementById('app-root');
+      root.innerHTML = `
+        <div class="section">
+          <div class="contact-container">
+            <i class="fab fa-whatsapp contact-icon"></i>
+            <h2 style="margin-top: 15px;">Connect With Us</h2>
+            <div class="contact-wa">
+              <i class="fab fa-whatsapp"></i> +254741388986
+            </div>
+            <p style="font-size: 1.1rem; font-weight:500;">MZAZI TECH VIRTUAL NUMBERS</p>
+            <p style="margin-top: 20px; color:#8CA3C2;">Fast virtual numbers for WhatsApp verification. Reliable support 24/7 via WhatsApp.</p>
+            <a href="${WHATSAPP_LINK}" target="_blank" class="btn-glow" style="margin-top: 28px; display: inline-flex;">Chat on WhatsApp <i class="fab fa-whatsapp"></i></a>
           </div>
-          <p style="font-size: 1.1rem; font-weight:500;">MZAZI TECH VIRTUAL NUMBERS</p>
-          <p style="margin-top: 20px; color:#8CA3C2;">Fast virtual numbers for WhatsApp verification. Reliable support 24/7 via WhatsApp.</p>
-          <a href="${WHATSAPP_LINK}" target="_blank" class="btn-glow" style="margin-top: 28px; display: inline-flex;">Chat on WhatsApp <i class="fab fa-whatsapp"></i></a>
         </div>
       `;
+      setActiveNav('contact');
     }
 
-    function renderHomePage() {
-      const container = document.getElementById("page-content");
-      if (!container) return;
-      container.innerHTML = `
-        <main>
-          <section class="hero">
-            <div class="hero-content">
-              <h1>Buy WhatsApp Virtual Numbers Instantly</h1>
-              <p class="hero-sub">Fast, Secure & Affordable Verification Numbers</p>
-              <a href="pricing.html" class="btn-glow">Order Now <i class="fas fa-arrow-right"></i></a>
-            </div>
-            <div class="hero-stats">
-              <div class="stat"><i class="fas fa-check-circle"></i> Instant delivery</div>
-              <div class="stat"><i class="fas fa-shield-alt"></i> Secure & private</div>
-              <div class="stat"><i class="fas fa-globe"></i> 20+ countries</div>
-            </div>
-          </section>
-          <section class="features-preview">
-            <div class="feature-card"><i class="fas fa-bolt"></i><h3>Lightning Fast</h3><p>Get your virtual number in minutes</p></div>
-            <div class="feature-card"><i class="fas fa-headset"></i><h3>24/7 Support</h3><p>Real human assistance on WhatsApp</p></div>
-            <div class="feature-card"><i class="fas fa-money-bill-wave"></i><h3>Best Prices</h3><p>Competitive rates across all regions</p></div>
-          </section>
-          <div class="preview-label"><i class="fas fa-list-ul"></i> Popular destinations</div>
-          <div class="country-strip">
-            <span>🇰🇪 Kenya +254</span> <span>🇺🇬 Uganda +256</span> <span>🇹🇿 Tanzania +255</span>
-            <span>🇳🇬 Nigeria +234</span> <span>🇺🇸 USA +1</span> <span>🇬🇧 UK +44</span>
-          </div>
-        </main>
-      `;
-    }
-
-    // Router logic based on URL path
-    function router() {
-      const path = window.location.pathname.split("/").pop() || "index.html";
-      const container = document.getElementById("page-content");
-      if (!container) return;
-      if (path === "pricing.html" || path === "pricing") {
-        renderPricingPage("");
-      } else if (path === "contact.html" || path === "contact") {
-        renderContactPage();
-      } else {
-        renderHomePage();
+    // Navigation logic
+    let currentPage = 'home';
+    
+    function navigateTo(page) {
+      currentPage = page;
+      if (page === 'home') renderHome();
+      else if (page === 'pricing') renderPricing('');
+      else if (page === 'contact') renderContact();
+      // close mobile menu if open
+      const navMenu = document.getElementById('navLinks');
+      if (navMenu && navMenu.classList.contains('show')) {
+        navMenu.classList.remove('show');
       }
-      // update active nav class
-      document.querySelectorAll(".nav-link").forEach(link => {
-        link.classList.remove("active-nav");
-        const href = link.getAttribute("href");
-        if ((path === "index.html" || path === "" || path === "/") && href === "index.html") link.classList.add("active-nav");
-        else if (href === path) link.classList.add("active-nav");
-        else if (path === "pricing.html" && href === "pricing.html") link.classList.add("active-nav");
-        else if (path === "contact.html" && href === "contact.html") link.classList.add("active-nav");
+      // update URL hash without reload
+      window.history.pushState({ page }, '', `#${page}`);
+    }
+    
+    // Handle initial load and hash change
+    function handleRoute() {
+      const hash = window.location.hash.slice(1); // remove #
+      if (hash === 'pricing') navigateTo('pricing');
+      else if (hash === 'contact') navigateTo('contact');
+      else navigateTo('home');
+    }
+    
+    // Event listeners for navigation links
+    function bindNavEvents() {
+      const navLinks = document.querySelectorAll('[data-page]');
+      navLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          const page = link.getAttribute('data-page');
+          if (page) navigateTo(page);
+        });
       });
     }
-
+    
     // Mobile menu toggle
     function initMobileMenu() {
-      const menuBtn = document.getElementById("menuToggle");
-      const navLinks = document.getElementById("navLinks");
-      if (menuBtn && navLinks) {
-        menuBtn.addEventListener("click", () => {
-          navLinks.classList.toggle("show");
+      const menuBtn = document.getElementById('menuToggle');
+      const navLinksContainer = document.getElementById('navLinks');
+      if (menuBtn && navLinksContainer) {
+        menuBtn.addEventListener('click', () => {
+          navLinksContainer.classList.toggle('show');
         });
-        document.querySelectorAll(".nav-link").forEach(link => {
-          link.addEventListener("click", () => navLinks.classList.remove("show"));
+        // close menu when clicking a link
+        document.querySelectorAll('.nav-link').forEach(link => {
+          link.addEventListener('click', () => {
+            navLinksContainer.classList.remove('show');
+          });
         });
       }
     }
-
-    // on load & popstate
-    window.addEventListener("DOMContentLoaded", () => {
-      // create main content container if not exists
-      if (!document.getElementById("page-content")) {
-        const mainDiv = document.createElement("div");
-        mainDiv.id = "page-content";
-        const navbar = document.querySelector(".navbar");
-        const footer = document.querySelector(".footer");
-        navbar.insertAdjacentElement("afterend", mainDiv);
-      }
-      router();
+    
+    // When page loads
+    window.addEventListener('DOMContentLoaded', () => {
       initMobileMenu();
+      bindNavEvents();
+      handleRoute();
     });
-
-    window.addEventListener("popstate", () => router());
-
-    // handle internal navigation for SPA-like smoothness but keep separate files? We'll preserve href for real pages but ensure same behavior
-    // make buy links globally working also added manually, but any external link works
+    
+    // Handle browser back/forward
+    window.addEventListener('popstate', () => {
+      handleRoute();
+    });
   </script>
 </body>
-</html>
+          </html>
